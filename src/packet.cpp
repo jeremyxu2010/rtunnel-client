@@ -1,7 +1,7 @@
 /*
  * packet.cpp
  *
- *  Created on: 2013Äê6ÔÂ16ÈÕ
+ *  Created on: 2013å¹´6æœˆ16æ—¥
  *      Author: jeremy
  */
 
@@ -50,7 +50,7 @@ void packet::init(int level){
 }
 
 /**
- * Ò»¸öbyteµÄĞ­ÒéÍ·
+ * ä¸€ä¸ªbyteçš„åè®®å¤´
  *
  * @return
  */
@@ -209,7 +209,7 @@ void packet::feedBytes(std::vector<unsigned char> srcVec, int start, int len) {
 }
 
 /**
- * °ÑÒ»¸öbyteÊı×éÌîÈëÊı¾İÇø
+ * æŠŠä¸€ä¸ªbyteæ•°ç»„å¡«å…¥æ•°æ®åŒº
  *
  * @see #feedBytes(byte[], int, int)
  * @param src
@@ -219,7 +219,7 @@ void packet::feedBytes(std::vector<unsigned char> srcVec) {
 }
 
 /**
- * °ÑÒ»¸ölongÕûÊıÌîÈëÊı¾İÇø
+ * æŠŠä¸€ä¸ªlongæ•´æ•°å¡«å…¥æ•°æ®åŒº
  *
  * @param v
  */
@@ -236,11 +236,11 @@ void packet::feedLong(unsigned long v) {
 }
 
 /**
- * ´ÓÊı¾İÇø³é³öÒ»¸ölong£¨8 bytes£©£¬Ôö¼ÓreadIndex
+ * ä»æ•°æ®åŒºæŠ½å‡ºä¸€ä¸ªlongï¼ˆ8 bytesï¼‰ï¼Œå¢åŠ readIndex
  *
  * @return
  * @throws IOException
- *             Èç¹ûÊı¾İÇøµÄ³¤¶ÈĞ¡ÓÚ8
+ *             å¦‚æœæ•°æ®åŒºçš„é•¿åº¦å°äº8
  */
 unsigned long packet::extractLong(){
 	if (index - readIndex < 8)
@@ -256,11 +256,11 @@ unsigned long packet::extractLong(){
 }
 
 /**
- * ´ÓÊı¾İÇø³é³öÒ»¸öint£¨4 bytes£©£¬Ôö¼ÓreadIndex
+ * ä»æ•°æ®åŒºæŠ½å‡ºä¸€ä¸ªintï¼ˆ4 bytesï¼‰ï¼Œå¢åŠ readIndex
  *
  * @return
  * @throws IOException
- *             Èç¹ûÊı¾İÇøµÄ³¤¶ÈĞ¡ÓÚ4
+ *             å¦‚æœæ•°æ®åŒºçš„é•¿åº¦å°äº4
  */
 unsigned int packet::extractInt(){
 	if (index - readIndex < 4)
@@ -272,7 +272,7 @@ unsigned int packet::extractInt(){
 }
 
 /**
- * °ÑÒ»¸öintÕûÊıÌîÈëÊı¾İÇø£¬Ôö¼Óindex
+ * æŠŠä¸€ä¸ªintæ•´æ•°å¡«å…¥æ•°æ®åŒºï¼Œå¢åŠ index
  *
  * @param v
  */
@@ -296,7 +296,7 @@ std::vector<unsigned char> packet::toBytes() {
 }
 
 /**
- * Êı¾İÇøÌØ¶¨Î»ÖÃÉÏµÄÒ»¸öbyteµÄÊı¾İ
+ * æ•°æ®åŒºç‰¹å®šä½ç½®ä¸Šçš„ä¸€ä¸ªbyteçš„æ•°æ®
  *
  * @param index
  * @return
@@ -306,10 +306,10 @@ unsigned char packet::byteAt(int index) {
 }
 
 /**
- * ¸ù¾İÉèÖÃµÄ±êÊ¶Î»½øĞĞÑ¹Ëõ¡¢¼ÓÃÜµÈµÈ
+ * æ ¹æ®è®¾ç½®çš„æ ‡è¯†ä½è¿›è¡Œå‹ç¼©ã€åŠ å¯†ç­‰ç­‰
  */
 void packet::encode() {
-	// ÏÈÑ¹Ëõºó¼ÓÃÜ
+	// å…ˆå‹ç¼©ååŠ å¯†
 	if (isCompressed()) {
 		compress();
 	}
@@ -319,10 +319,10 @@ void packet::encode() {
 }
 
 /**
- * ¸ù¾İ±êÊ¶Î»½øĞĞ½âÃÜºÍ½âÑ¹
+ * æ ¹æ®æ ‡è¯†ä½è¿›è¡Œè§£å¯†å’Œè§£å‹
  */
 void packet::decode() {
-	// ÏÈ½âÃÜºó½âÑ¹
+	// å…ˆè§£å¯†åè§£å‹
 	if (isEncrypted()) {
 		decrypt();
 		clearEncrypted();
@@ -504,12 +504,12 @@ int packet::getIndex() {
 }
 
 /**
- * ½«ChannelBufferµÄ³¤¶ÈÎªlengthµÄÄÚÈİµ±³ÉÒ»¸öÍêÕûµÄPacket¶ÁÈëµ±Ç°°üµÄÍ·²¿ºÍÊı¾İÇø¡£
- * ×¢ÒâChannelBuffer¿ÉÄÜ¶Áµ½ÁËÏÂÒ»¸ö°üµÄÊı¾İ
+ * å°†ChannelBufferçš„é•¿åº¦ä¸ºlengthçš„å†…å®¹å½“æˆä¸€ä¸ªå®Œæ•´çš„Packetè¯»å…¥å½“å‰åŒ…çš„å¤´éƒ¨å’Œæ•°æ®åŒºã€‚
+ * æ³¨æ„ChannelBufferå¯èƒ½è¯»åˆ°äº†ä¸‹ä¸€ä¸ªåŒ…çš„æ•°æ®
  *
  * @param in
  * @param length
- *            °üµÄ³¤¶È£¨°üÀ¨HEAD_SIZE£©
+ *            åŒ…çš„é•¿åº¦ï¼ˆåŒ…æ‹¬HEAD_SIZEï¼‰
  * @throws IOException
  */
 void packet::readPacket(std::vector<unsigned char> buf, int length){
@@ -519,7 +519,7 @@ void packet::readPacket(std::vector<unsigned char> buf, int length){
 }
 
 /**
- * ½«Õû¸öPacket°ü×°³ÉChannelBuffer,zero copy
+ * å°†æ•´ä¸ªPacketåŒ…è£…æˆChannelBuffer,zero copy
  *
  * @return
  */
@@ -529,7 +529,7 @@ boost::asio::const_buffer packet::wrapPacket() {
 }
 
 /**
- * ½«°üµÄÊı¾İÇø°ü×°³ÉChannelBuffer,zero copy
+ * å°†åŒ…çš„æ•°æ®åŒºåŒ…è£…æˆChannelBuffer,zero copy
  *
  * @return
  */
@@ -538,7 +538,7 @@ boost::asio::const_buffer packet::wrapPacketData() {
 }
 
 /**
- * ½«ChannelBufferµÄËùÓĞÄÚÈİ¶Áµ½packetµÄÊı¾İÇø
+ * å°†ChannelBufferçš„æ‰€æœ‰å†…å®¹è¯»åˆ°packetçš„æ•°æ®åŒº
  *
  * @param in
  * @throws IOException

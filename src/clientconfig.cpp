@@ -1,7 +1,7 @@
 /*
  * clientconfig.cpp
  *
- *  Created on: 2013Äê6ÔÂ16ÈÕ
+ *  Created on: 2013å¹´6æœˆ16æ—¥
  *      Author: jeremy
  */
 
